@@ -1,5 +1,4 @@
 
-
 function populateUFs() {
   const ufSelect = document.querySelector("select[name=uf]")
 
@@ -46,8 +45,6 @@ function getCities(event) {
 }
 
 
-
-
 document
   .querySelector("select[name=uf]")
   .addEventListener("change", getCities)
@@ -57,7 +54,7 @@ document
 const itemsToCollect = document.querySelectorAll(".Items-grid li")
 
 for (const item of itemsToCollect) {
-  item.addEventListener("click", handleSelectedItem) //51:12
+  item.addEventListener("click", handleSelectedItem) 
 }
 
 const collectedItems = document.querySelector("input[name=items]")
@@ -73,17 +70,16 @@ function handleSelectedItem(event) {
   
   const itemId = itemLi.dataset.id
 
-
- // verificar se existem itens selecionados, se sim
- // pegar os items selecionados
+  console.log('ITEM ID:', itemId)
+ 
+  // verificar se existem itens selecionados, se sim
+  // pegar os items selecionados
 
   const alreadySelected = selectedItems.findIndex( item => {
     const itemFound = item == itemId // isso será true or false
     return itemFound
   })
 
-
- 
   // se já estiver selecionado, tirar da seleção
   if(alreadySelected >= 0 ) {
      // tirar da seleção
@@ -98,6 +94,8 @@ function handleSelectedItem(event) {
       // adicionar à seleção
       selectedItems.push(itemId)
   }
+
+  // console.log('selectedItems:', selectedItems)
 
   // atualizar o campo estendido com os itens selecionados
   collectedItems.value = selectedItems
